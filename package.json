@@ -1,6 +1,6 @@
 {
-  "name": "react-pinch-zoom-pan",
-  "version": "1.4.5",
+  "name": "react-pinch-zoom-pan-observables",
+  "version": "1.0.0",
   "description": "A react component that lets you add pinch-zoom and pan sub components",
   "main": "lib/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gerhardsletten/react-pinch-zoom-pan.git"
+    "url": "git+https://github.com/samuveljohns/react-pinch-zoom-pan.git"
   },
   "keywords": [
     "react",
@@ -27,12 +27,12 @@
     "zoom",
     "pan"
   ],
-  "author": "Eyvind Gerhard Sletten",
+  "author": "Samuvel Johnson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gerhardsletten/react-pinch-zoom-pan/issues"
+    "url": "https://github.com/samuveljohns/react-pinch-zoom-pan.git/issues"
   },
-  "homepage": "https://github.com/gerhardsletten/react-pinch-zoom-pan#readme",
+  "homepage": "https://github.com/samuveljohns/react-pinch-zoom-pan.git#readme",
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
