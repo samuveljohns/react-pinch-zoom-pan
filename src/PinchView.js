@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import s from 'react-prefixr'
-import {ReactPinchZoomPan} from './'
+import { ReactPinchZoomPan } from './'
 
 class PinchView extends Component {
-  getContainerStyle () {
-    const {backgroundColor, containerRatio} = this.props
+  getContainerStyle() {
+    const { backgroundColor, containerRatio } = this.props
     return {
       paddingTop: containerRatio.toFixed(2) + '%',
       overflow: 'hidden',
@@ -14,7 +14,7 @@ class PinchView extends Component {
     }
   }
 
-  getInnerStyle () {
+  getInnerStyle() {
     return {
       position: 'absolute',
       top: 0,
@@ -24,13 +24,13 @@ class PinchView extends Component {
     }
   }
 
-  getHolderStyle () {
+  getHolderStyle() {
     return {
       position: 'relative'
     }
   }
 
-  getContentStyle (obj) {
+  getContentStyle(obj) {
     return {
       width: '100%',
       height: '100%',
@@ -42,18 +42,19 @@ class PinchView extends Component {
     }
   }
 
-  renderDebug (obj) {
+  renderDebug(obj) {
     return (
-      <div style={{position: 'absolute', bottom: 0, left: 0, background: '#555', color: '#fff', padding: '3px 6px'}}>
+      <div style={{ position: 'absolute', bottom: 0, left: 0, background: '#555', color: '#fff', padding: '3px 6px' }}>
         Scale: {obj.scale}, X: {obj.x}, Y: {obj.y}
       </div>
     )
   }
 
-  render () {
-    const {debug, initialScale, maxScale, holderClassName, containerClassName, children, onPinchStart, onPinchStop} = this.props
+  render() {
+    const { debug, initialScale, maxScale, holderClassName, containerClassName, children, onPinchStart, onPinchStop, getTransformation } = this.props
     return (
       <ReactPinchZoomPan initialScale={initialScale} maxScale={maxScale} render={(obj) => {
+        getTransformation({ scale: obj.scale, x: obj.x, y: obj.y })
         return (
           <div style={this.getHolderStyle()} className={holderClassName}>
             <div style={this.getContainerStyle()} className={containerClassName}>
@@ -89,7 +90,8 @@ PinchView.propTypes = {
   backgroundColor: PropTypes.string,
   debug: PropTypes.bool,
   onPinchStart: PropTypes.func,
-  onPinchStop: PropTypes.func
+  onPinchStop: PropTypes.func,
+  getTransformation: PropTypes.func
 }
 
 export default PinchView
